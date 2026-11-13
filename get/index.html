@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hanzi — Read any Chinese app in English</title>
+<meta name="description" content="Taobao, Alipay, Meituan, WeChat: tap one button and the screen you're on comes back in English, right on top of the app. For iPhone.">
+<meta name="apple-itunes-app" content="app-id=6814826357">
+<link rel="icon" href="../icon.png">
+<style>
+:root{--bg:#F6F5F1;--ink:#141413;--ink2:#5E5C57;--seal:#D93A22;--card:#fff;--line:#E4E2DC}
+@media (prefers-color-scheme:dark){:root{--bg:#171615;--ink:#F3F1EC;--ink2:#ABA79F;--seal:#F0563C;--card:#211F1D;--line:#34312E}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:560px;margin:0 auto;padding:22px 16px 40px}
+header{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+header img{width:40px;height:40px;border-radius:9px}
+header b{font-size:20px}
+h1{font-size:31px;line-height:1.12;margin:0 0 10px;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--seal)}
+.sub{color:var(--ink2);margin:0 0 18px}
+.cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0 0 22px}
+.cta a{display:block;line-height:0}
+.cta img{height:58px;width:auto}
+.cta small{color:var(--ink2);font-size:14px}
+.shots{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px 22px;padding:0 16px 6px}
+.shots img{flex:0 0 62%;max-width:250px;aspect-ratio:598/1300;border-radius:16px;scroll-snap-align:start;border:1px solid var(--line);background:var(--card)}
+ul{list-style:none;padding:0;margin:0 0 24px}
+li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;color:var(--ink2)}
+li b{color:var(--ink)}
+footer{color:var(--ink2);font-size:13px;text-align:center}
+footer a{color:var(--ink2)}
+</style>
+</head>
+<body>
+<main>
+  <header><img src="../icon.png" alt=""><b>Hanzi</b></header>
+  <h1>Read any Chinese app <em>in English.</em></h1>
+  <p class="sub">Taobao, Alipay, Meituan, WeChat, Xianyu — tap one button and the screen you're on comes back in English, right on top of the app.</p>
+
+  <div class="cta">
+    <a class="store" href="https://apps.apple.com/app/apple-store/id6814826357?pt=128466772&amp;ct=gads-x&amp;mt=8"><img src="badge.svg" alt="Download on the App Store"></a>
+    <small>For iPhone · 7-day trial on the yearly plan</small>
+  </div>
+
+  <div class="shots">
+    <img src="s1.jpg" alt="Any Chinese app, now in English" loading="eager">
+    <img src="s2.jpg" alt="Translated in place" loading="lazy">
+    <img src="s3.jpg" alt="One tap" loading="lazy">
+    <img src="s4.jpg" alt="Text inside pictures too" loading="lazy">
+  </div>
+
+  <ul>
+    <li><b>Works on top of any app.</b> Shopping, payments, food delivery, your landlord's chat.</li>
+    <li><b>Reads text inside pictures too.</b> Product photos, menus, screenshots.</li>
+    <li><b>Stays on your iPhone.</b> Your screen is never uploaded anywhere.</li>
+  </ul>
+
+  <div class="cta">
+    <a class="store" href="https://apps.apple.com/app/apple-store/id6814826357?pt=128466772&amp;ct=gads-x&amp;mt=8"><img src="badge.svg" alt="Download on the App Store"></a>
+  </div>
+
+  <footer>
+    This page counts visits from our ads (Google Ads) to know which ones work.<br>
+    <a href="../privacy/">Privacy</a> · <a href="../support/">Support</a>
+  </footer>
+</main>
+<script>
+(function(){
+  var AW = "AW-17931288801", LABEL = "IBpbCKrgy7cdEOGBp-ZC";
+  var t0 = Date.now(), MIN_MS = 3000;
+  var q = new URLSearchParams(location.search);
+  var v = (q.get("utm_content") || q.get("v") || "x").replace(/[^a-z0-9_-]/gi, "").slice(0, 30) || "x";
+  var store = "https://apps.apple.com/app/apple-store/id6814826357?pt=128466772&ct=" + encodeURIComponent("gads-" + v) + "&mt=8";
+  var links = document.querySelectorAll("a.store");
+  for (var i = 0; i < links.length; i++) links[i].href = store;
+
+  /* Medicion propia (PostHog, sin cookies ni perfil): vista y toque por video. */
+  var sid = "hzw-" + Math.random().toString(16).slice(2) + Date.now().toString(16);
+  function ph(ev){
+    try{
+      fetch("https://us.i.posthog.com/capture/", {method:"POST", keepalive:true, headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({api_key:"phc_3XrhNSwJkffw9lChO0bvAAEboGSp8wbr6FU7kwlqE8B", event:ev, distinct_id:sid,
+          properties:{$lib:"hanzi-web", v:v, src:q.get("utm_source")||null, camp:q.get("utm_campaign")||null,
+            gclid: q.has("gclid")||q.has("gbraid")||q.has("wbraid"), $process_person_profile:false, $geoip_disable:false}})});
+    }catch(e){}
+  }
+  ph("web_landing_view");
+
+  /* Etiqueta de Google: conversion = toque en "Download on the App Store". */
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag("js", new Date());
+  gtag("config", AW);
+  var s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + AW;
+  document.head.appendChild(s);
+
+  var fue = false;
+  function alStore(e){
+    if (fue) return; fue = true;
+    e.preventDefault();
+    var ir = function(){ if (ir.hecho) return; ir.hecho = true; location.href = store; };
+    /* Solo cuenta para Google si estuvo >= 3 s en la pagina: un toque reflejo no entrena la puja. Navega igual. */
+    var util = Date.now() - t0 >= MIN_MS;
+    ph(util ? "web_store_click" : "web_store_click_rapido");
+    if (util) {
+      try { gtag("event", "conversion", {send_to: AW + "/" + LABEL, transport_type: "beacon", event_callback: ir}); } catch(err) {}
+      setTimeout(ir, 700);
+    } else {
+      setTimeout(ir, 150);
+    }
+    setTimeout(function(){ fue = false; }, 3000);
+  }
+  for (var j = 0; j < links.length; j++) links[j].addEventListener("click", alStore);
+})();
+</script>
+</body>
+</html>
