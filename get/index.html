@@ -112,7 +112,7 @@ footer a{color:var(--ink2)}
     ph(util ? "web_store_click" : "web_store_click_rapido");
     if (util) {
       try { fbq("track", "Lead", {content_name: v}); } catch(err) {}
-      try { gtag("event", "conversion", {send_to: AW + "/" + LABEL, transport_type: "beacon", event_callback: ir}); } catch(err) {}
+      try { gtag("event", "conversion", {send_to: AW + "/" + LABEL, transport_type: "beacon", event_callback: function(){ setTimeout(ir, 350); }}); } catch(err) {}
       setTimeout(ir, 700);
     } else {
       setTimeout(ir, 150);
