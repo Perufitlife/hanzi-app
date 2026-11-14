@@ -61,7 +61,7 @@ footer a{color:var(--ink2)}
   </div>
 
   <footer>
-    This page counts visits from our ads (Google Ads) to know which ones work.<br>
+    This page counts visits from our ads (Google Ads, Meta) to know which ones work.<br>
     <a href="../privacy/">Privacy</a> · <a href="../support/">Support</a>
   </footer>
 </main>
@@ -95,6 +95,13 @@ footer a{color:var(--ink2)}
   var s = document.createElement("script"); s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + AW;
   document.head.appendChild(s);
 
+  /* Pixel de Meta (conjunto de datos "Hanzi Web"): vista de pagina, y Lead = toque util en el boton del App Store. */
+  !function(f,b,e,u,n,t,z){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=u;
+  z=b.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init", "4250661291893455");
+  fbq("track", "PageView");
+
   var fue = false;
   function alStore(e){
     if (fue) return; fue = true;
@@ -104,6 +111,7 @@ footer a{color:var(--ink2)}
     var util = Date.now() - t0 >= MIN_MS;
     ph(util ? "web_store_click" : "web_store_click_rapido");
     if (util) {
+      try { fbq("track", "Lead", {content_name: v}); } catch(err) {}
       try { gtag("event", "conversion", {send_to: AW + "/" + LABEL, transport_type: "beacon", event_callback: ir}); } catch(err) {}
       setTimeout(ir, 700);
     } else {
