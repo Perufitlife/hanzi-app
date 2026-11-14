@@ -71,7 +71,7 @@ footer a{color:var(--ink2)}
   var t0 = Date.now(), MIN_MS = 3000;
   var q = new URLSearchParams(location.search);
   var v = (q.get("utm_content") || q.get("v") || "x").replace(/[^a-z0-9_-]/gi, "").slice(0, 30) || "x";
-  var store = "https://apps.apple.com/app/apple-store/id6814826357?pt=128466772&ct=" + encodeURIComponent("gads-" + v) + "&mt=8";
+  var store = "https://apps.apple.com/app/apple-store/id6814826357?pt=128466772&ct=" + encodeURIComponent((/^(meta|fb|ig|facebook|instagram)$/i.test(q.get("utm_source")||"") ? "meta-" : "gads-") + v) + "&mt=8";
   var links = document.querySelectorAll("a.store");
   for (var i = 0; i < links.length; i++) links[i].href = store;
 
